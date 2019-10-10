@@ -10,8 +10,14 @@ var orm = {
         });
     },
     // orm function to insert val to burgers
-    insertOne: function(){
-
+    insertOne: function(table, col, val, cb){
+        var queryString = "INSERT INTO " + table;
+        queryString += " (" + col.toString() + ") ";
+        queryString += "VALUES (?)";
+        con.query(queryString, val, function(err, result){
+            if(err) throw err;
+            cb(result);
+        });
     },
     // orm function to update val in burgers
     updateOne: function(){
