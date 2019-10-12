@@ -1,0 +1,27 @@
+<h1>Eat Da Burger</h1>
+
+{{!-- display burgers that aren't devoured --}}
+<div>
+    <ul>
+        {{!-- for each over burgers from burgers_controller --}}
+        {{#each burgers}}
+            {{#unless devoured}}
+                {{!-- display burger that are not devoured --}}
+                {{>burgers/burger-block devoured=false}}
+            {{/unless}}
+        {{/each}}
+    </ul>
+</div>
+
+{{!-- display burgers that are devoured --}}
+<div>
+    <ul>
+        {{!-- for each over burgers from burgers_controller --}}
+        {{#each}}
+            {{#if devoured}}
+                {{!-- display burgers that are devoured --}}
+                {{>burgers/burger-block devoured=true}}
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
