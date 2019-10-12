@@ -38,7 +38,7 @@ router.put("/api/burgers/:id", function(req, res){
     // orm to update on burger with data from body
     burger.updateOne({
         // update devoured from body
-        devoured: req.body.devoured
+        devoured: "true"
     }, condition, function(result){
         // check to see if id exists
         if(result.changedRows === 0){

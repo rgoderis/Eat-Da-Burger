@@ -3,6 +3,17 @@ $(function(){
     // click listener for devour-it button
     $(".devour-it").on("click", function(event){
         console.log("you clicked the devour button")
+        var id = $(this).data("id");
+        console.log(id);
+        var devouredId = {
+            id: id
+        }
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredId
+        }).then(function(){
+            location.reload();
+        })
     });
 
     // click listener for burger-submit button
