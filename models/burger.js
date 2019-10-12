@@ -5,7 +5,7 @@ var orm = require("../config/orm.js");
 var burger = {
     // orm to select all from burgers table
     selectAll: function(cb){
-        orm.insertOne("burgers", function(res){
+        orm.selectAll("burgers", function(res){
             cb(res)
         });
     }, 

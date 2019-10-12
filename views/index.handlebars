@@ -7,7 +7,11 @@
         {{#each burgers}}
             {{#unless devoured}}
                 {{!-- display burger that are not devoured --}}
-                {{>burgers/burger-block devoured=false}}
+                <li>
+                    {{id}}
+	                {{burger_name}}
+                    <button class="devour-it" data-id="{{id}}">Devour Da Burger!</button>
+                </li>
             {{/unless}}
         {{/each}}
     </ul>
@@ -17,10 +21,13 @@
 <div>
     <ul>
         {{!-- for each over burgers from burgers_controller --}}
-        {{#each}}
+        {{#each burgers}}
             {{#if devoured}}
                 {{!-- display burgers that are devoured --}}
-                {{>burgers/burger-block devoured=true}}
+                <li>
+                    {{id}}
+	                {{burger_name}}
+                </li>
             {{/if}}
         {{/each}}
     </ul>
@@ -28,10 +35,10 @@
 
 {{!-- form to add a new burger --}}
 <div>
-    <form action="POST">
+    <form>
         <label for="new-burger">Enter a burger you want to eat</label>
         <input type="text" id="new-burger">
-        <button type="submit" id="burger-submit"></button>
+        <button type="submit" id="burger-submit">Add Da Burger!</button>
         <p>Enter a burger you want to </p>
     </form>
 </div>

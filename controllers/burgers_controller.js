@@ -23,10 +23,10 @@ router.get("/", function(req, res){
 
 // route handler to add a burger
 router.post("/api/burgers", function(req, res){
+    console.log("post attempt to /api/burgers")
     // orm to add a burger with data from body
-    burger.insertOne(["burger_name"], [req.body.burger], function(err, data){
-        if(err) throw err;
-        // if successful log new burger added and redirect to root route
+    burger.insertOne(["burger_name"], [req.body.burger], function(data){
+        // log new burger added and redirect to root route
         console.log("new burger added");
         res.redirect("/")
     });
@@ -38,7 +38,7 @@ router.put("/api/burgers/:id", function(req, res){
     // orm to update on burger with data from body
     burger.updateOne({
         // update devoured from body
-        devoured: req.body.devoured;
+        devoured: req.body.devoured
     }, condition, function(result){
         // check to see if id exists
         if(result.changedRows === 0){
