@@ -31,3 +31,23 @@ router.post("/api/burgers", function(req, res){
         res.redirect("/")
     });
 });
+
+// route to update a burger
+router.put("/api/burgers/:id", function(req, res){
+    var condition = "id = " + req.params.id;
+    // orm to update on burger with data from body
+    burger.updateOne({
+        // update devoured from body
+        devoured: req.body.devoured;
+    }, condition, function(result){
+        // check to see if id exists
+        if(result.changedRows === 0){
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
+
+// export router for server.js
+module.exports = router;

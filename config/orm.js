@@ -29,6 +29,7 @@ var orm = {
         var queryString = "SELECT * FROM " + table;
         con.query(queryString, function(err, result){
             if(err) throw err;
+            // callback the result
             cb(result)
         });
     },
@@ -39,6 +40,7 @@ var orm = {
         queryString += "VALUES (?)";
         con.query(queryString, val, function(err, result){
             if(err) throw err;
+            // callback the result
             cb(result);
         });
     },
@@ -49,9 +51,11 @@ var orm = {
         queryString += " WHERE " + condition;
         con.query(queryString, function(err, result){
             if(err) throw err;
+            // callback the result
             cb(result);
         });
     }
 }
 
+// export orm for burger.js model to use
 module.exports = orm;

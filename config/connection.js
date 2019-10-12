@@ -1,9 +1,11 @@
 var mysql = require("mysql");
 
 // mysql connection
+// connect to heroku JAWSDB if available
 if (process.env.JAWSDB_URL){
     con = mysql.createConnection(process.env.JAWSDB_URL);
 } else{
+    // otherwise connect to localhost mysql db
     con = mysql.createConnection({
         host: "localhost",
         user: "root",
