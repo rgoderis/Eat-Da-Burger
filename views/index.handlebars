@@ -1,43 +1,51 @@
-<h1>Eat Da Burger</h1>
+<div class="container">
+        <h1 class="text-center mb-3 text-warning">Eat Da Burger</h1>
+        <h4 class="text-center mb-5 text-warning">Enter a burger below to add it to the list and click the burger icon to devour it!</h4>
+    <div class="row mt-5">
+        {{!-- display burgers that aren't devoured --}}
+        <div class="col-6 mt-5">
+            <ul>
+                {{!-- for each over burgers from burgers_controller --}}
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        {{!-- display burger that are not devoured --}}
+                        <div>
+                            <p class="text-white">
+        	                {{burger_name}}
+                            <i class="fas fa-hamburger devour-it ml-5 text-warning" data-id="{{id}}"></i></p>
+                        </div>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
 
-{{!-- display burgers that aren't devoured --}}
-<div>
-    <ul>
-        {{!-- for each over burgers from burgers_controller --}}
-        {{#each burgers}}
-            {{#unless devoured}}
-                {{!-- display burger that are not devoured --}}
-                <li>
-                    {{id}}
-	                {{burger_name}}
-                    <button class="devour-it" data-id="{{id}}">Devour Da Burger!</button>
-                </li>
-            {{/unless}}
-        {{/each}}
-    </ul>
+        {{!-- display burgers that are devoured --}}
+        <div class="col-6 mt-5 pl-5">
+            <ul>
+                {{!-- for each over burgers from burgers_controller --}}
+                {{#each burgers}}
+                    {{#if devoured}}
+                        {{!-- display burgers that are devoured --}}
+                        <div class="ml-5">
+        	                <p class="text-white ml-5">{{burger_name}}</p>
+                        </div>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+            {{!-- form to add a new burger --}}
+        <div class="text-center w-25 mx-auto mt-5">
+            <form>
+                <div class="form-group">
+                    <label for="new-burger"><p class="text-warning">Enter a burger you want to eat</p></label>
+                    <input type="text" id="new-burger" class="form-control">
+                </div>
+                <button type="submit" id="burger-submit" class="btn bg-warning">Add Da Burger!</button>
+            </form>
+        </div>
 </div>
 
-{{!-- display burgers that are devoured --}}
-<div>
-    <ul>
-        {{!-- for each over burgers from burgers_controller --}}
-        {{#each burgers}}
-            {{#if devoured}}
-                {{!-- display burgers that are devoured --}}
-                <li>
-                    {{id}}
-	                {{burger_name}}
-                </li>
-            {{/if}}
-        {{/each}}
-    </ul>
-</div>
 
-{{!-- form to add a new burger --}}
-<div>
-    <form>
-        <label for="new-burger">Enter a burger you want to eat</label>
-        <input type="text" id="new-burger">
-        <button type="submit" id="burger-submit">Add Da Burger!</button>
-    </form>
-</div>
+

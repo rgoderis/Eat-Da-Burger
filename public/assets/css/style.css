@@ -1,0 +1,10 @@
+body {
+    background-image: url("https://wallpaperaccess.com/full/235205.jpg");
+    
+    color: black;
+}
+.jumbotron {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
