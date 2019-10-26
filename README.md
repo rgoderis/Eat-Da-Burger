@@ -8,6 +8,6 @@ This app utilizes **express** for all route handling in addition to *
 #### App Practicality
 Eat Da Burger demonstrates **CRUD** specifically **Create**, **READ**, and **UPDATE** by allowing the user to add a burger to the database, display all burgers to the user, and allow the user to update the database by clicking the burger icon to change the status of devoured from **false** to **true**.
 
-[App](./public/assets/images/background.png)
+![App](./public/assets/images/background.png)
 
 If you would like to **Eat Da Burger** yourself click [here](https://calm-brushlands-25542.herokuapp.com)
